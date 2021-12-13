@@ -109,6 +109,12 @@ export default {
     path: get('page/path'),
     locale: get('page/locale')
   },
+  emits: ['relay'],
+  watch: {
+    parents (newValue, oldValue) {
+      this.$emit('relay', newValue.map(x => x.id))
+    }
+  },
   methods: {
     switchMode (mode) {
       this.currentMode = mode
